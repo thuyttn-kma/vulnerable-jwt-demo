@@ -3,79 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Vulnerable JWT Demo</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>User Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <div class="dashboard-header">
-            <div class="header-content">
-                <h1>Dashboard</h1>
-                <div class="user-info">
-                    <span id="userDisplay">User: <strong id="username"></strong></span>
-                    <span id="roleDisplay" class="role-badge"></span>
-                </div>
-            </div>
-            <button class="btn btn-danger" onclick="handleLogout()">Logout</button>
-        </div>
+    <header>
+        <h1>User Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Admin Panel</a></li>
+                <li><a href="#">User List</a></li>
+                <li><a href="#">Protected Data Section</a></li>
+                <li><a href="#">JWT Exploitation Demo Tool</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="dashboard-content">
-            <!-- User Profile Section -->
-            <div class="card">
-                <h2> User Profile</h2>
-                <div id="profileContent" class="profile-info">
-                    <p>Loading...</p>
-                </div>
-            </div>
+    <main>
+        <section id="user-dashboard">
+            <h2>Welcome to Your Dashboard</h2>
+            <p>Here you can find your recent activities, updates, and more.</p>
+        </section>
 
-            <!-- Admin Panel Section -->
-            <div id="adminSection" class="card" style="display: none;">
-                <h2>⚙️ Admin Panel</h2>
-                
-                <div class="admin-subsection">
-                    <h3>All Users</h3>
-                    <button class="btn btn-secondary" onclick="loadAllUsers()">Refresh Users List</button>
-                    <div id="usersList" class="users-table"></div>
-                </div>
+        <section id="admin-panel">
+            <h2>Admin Panel</h2>
+            <p>Manage users and settings from this section.</p>
+        </section>
 
-                <div class="admin-subsection">
-                    <h3>Protected Admin Data</h3>
-                    <button class="btn btn-secondary" onclick="loadProtectedData()">Load Protected Data</button>
-                    <div id="protectedData" class="protected-data"></div>
-                </div>
-            </div>
+        <section id="user-list">
+            <h2>User List</h2>
+            <p>View and manage all registered users.</p>
+        </section>
 
-            <!-- Exploit Tool Section -->
-            <div class="card exploit-card">
-                <h2>JWT Privilege Escalation Demo</h2>
-                <p class="exploit-info">This tool demonstrates the JWT vulnerability by modifying your token to escalate your role from "user" to "admin".</p>
-                
-                <div class="exploit-steps">
-                    <h3>How it works:</h3>
-                    <ol>
-                        <li>Your JWT token is decoded (it's not encrypted!)</li>
-                        <li>The 'role' claim is modified from 'user' to 'admin'</li>
-                        <li>The token is re-signed with the weak secret key 'secret'</li>
-                        <li>Your session is updated with the forged token</li>
-                        <li>You now have admin access! </li>
-                    </ol>
-                </div>
+        <section id="protected-data">
+            <h2>Protected Data Section</h2>
+            <p>Access restricted data securely.</p>
+        </section>
 
-                <div class="exploit-controls">
-                    <button class="btn btn-warning" onclick="demonstrateVulnerability()">Demonstrate Vulnerability (Escalate to Admin)</button>
-                </div>
+        <section id="jwt-exploitation"> 
+            <h2>JWT Exploitation Demo Tool</h2>
+            <p>Test security vulnerabilities related to JWT.</p>
+        </section>
+    </main>
 
-                <div id="exploitLog" class="exploit-log"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="{{ url_for('static', filename='exploit.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            loadDashboard();
-        });
-    </script>
+    <footer>
+        <p>&copy; 2026 - Your Company</p>
+    </footer>
 </body>
 </html>
